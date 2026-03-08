@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfólio Ideal — Descubra sua alocação ideal de investimentos</title>
-<meta name="description" content="Ferramenta gratuita baseada em ciência comportamental para descobrir sua alocação ideal de investimentos. Baseada no framework de David Berns (2020).">
+<meta name="description" content="Ferramenta gratuita baseada em ciência comportamental para descobrir sua alocação ideal de investimentos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
@@ -200,7 +200,7 @@
   .hc-bar-wrap { flex: 1; height: 6px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
   .hc-bar { height: 100%; border-radius: 99px; background: var(--blue); }
   .hc-pct { font-size: 13px; font-weight: 600; color: var(--blue); width: 70px; text-align: right; flex-shrink: 0; }
-  .hc-interval { font-size: 11px; color: var(--muted); font-weight: 400; }
+  .hc-interval { font-size: 13px; color: var(--blue); font-weight: 600; }
 
   /* ── STATS ── */
   .stats {
@@ -327,26 +327,19 @@
 
   /* ── CIÊNCIA ── */
   .science { padding: 100px 5%; text-align: center; }
-  .book-card {
-    display: inline-flex; align-items: center; gap: 28px;
-    background: var(--dark);
-    border-radius: 20px;
-    padding: 36px 44px;
-    margin-top: 48px;
+  .pillars {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px; max-width: 900px; margin: 48px auto 0;
     text-align: left;
-    max-width: 680px;
   }
-  .book-spine {
-    width: 60px; height: 90px; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-d) 100%);
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 4px 4px 12px rgba(0,0,0,.3);
+  .pillar {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 32px 28px;
   }
-  .book-spine span { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.7); writing-mode: vertical-rl; letter-spacing: 2px; text-transform: uppercase; }
-  .book-info h4 { font-family: 'DM Serif Display', serif; font-size: 20px; color: #fff; font-weight: 400; margin-bottom: 6px; }
-  .book-info p { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.6; }
-  .book-info .book-tag { display: inline-block; background: rgba(59,130,246,.2); color: var(--blue-l); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; margin-top: 12px; }
+  .pillar-icon { font-size: 28px; margin-bottom: 16px; }
+  .pillar h4 { font-family: 'DM Serif Display', serif; font-size: 18px; font-weight: 400; color: #fff; margin-bottom: 10px; }
+  .pillar p { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.65; }
 
   /* ── CTA FINAL ── */
   .cta-section {
@@ -415,7 +408,6 @@
     .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 0 0 32px; }
     .stat:last-child { border-bottom: none; }
     .diff-grid { grid-template-columns: 1fr; gap: 40px; }
-    .book-card { flex-direction: column; text-align: center; padding: 28px; }
     footer { flex-direction: column; text-align: center; }
     .params { grid-template-columns: 1fr 1fr; }
   }
@@ -526,7 +518,7 @@
     <div class="step">
       <div class="step-num">4</div>
       <h3>Efeito reflexão (φ)</h3>
-      <p>Você toma mais risco quando já está perdendo? Esse viés comportamental — identificado por Kahneman & Tversky — muda completamente a alocação ideal.</p>
+      <p>Você toma mais risco quando já está perdendo? Esse viés comportamental muda completamente a alocação ideal.</p>
     </div>
   </div>
 </section>
@@ -610,17 +602,25 @@
 <section class="science">
   <div class="reveal">
     <span class="section-tag">Fundamentação científica</span>
-    <h2>Baseado em pesquisa acadêmica<br>de referência mundial</h2>
+    <h2>Construído sobre décadas de<br>pesquisa acadêmica</h2>
     <p class="section-sub" style="margin-bottom:0">
-      O framework implementado segue rigorosamente a metodologia publicada por David Berns, PhD — pioneiro em alocação de ativos comportamental para gestão de patrimônio.
+      O framework combina finanças comportamentais, teoria da utilidade e gestão de patrimônio — áreas consolidadas na literatura acadêmica internacional.
     </p>
-    <div class="book-card">
-      <div class="book-spine"><span>Berns 2020</span></div>
-      <div class="book-info">
-        <h4>Modern Asset Allocation for Wealth Management</h4>
-        <p>David M. Berns, PhD · John Wiley & Sons, 2020<br>
-        Framework completo de utility function tridimensional com moderação por Standard of Living Risk.</p>
-        <span class="book-tag">Prospect Theory · Kahneman & Tversky</span>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🧠</div>
+        <h4>Finanças Comportamentais</h4>
+        <p>Incorpora como pessoas realmente tomam decisões sob risco — não como a teoria clássica assume que deveriam tomar.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📐</div>
+        <h4>Teoria da Utilidade</h4>
+        <p>Função de utilidade tridimensional que captura aversão ao risco, aversão à perda e efeito reflexão de forma independente.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🎯</div>
+        <h4>Gestão de Patrimônio</h4>
+        <p>Moderação automática dos parâmetros pela situação financeira real — não um perfil estático, mas uma alocação dinâmica.</p>
       </div>
     </div>
   </div>

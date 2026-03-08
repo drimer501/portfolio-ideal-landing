@@ -727,24 +727,15 @@
 
 <!-- Modal Interesse Assessor -->
 <div class="modal-overlay" id="modal-interesse">
-  <div class="modal-box">
-    <div id="modal-form-content">
-      <h3>Quero ser Assessor</h3>
-      <p>Deixe seus dados e entraremos em contato em até 24h para ativar sua conta.</p>
-      <div class="mfield"><label>Nome completo</label><input type="text" id="m-nome" placeholder="João Silva"></div>
-      <div class="mfield"><label>E-mail profissional</label><input type="email" id="m-email" placeholder="joao@escritorio.com.br"></div>
-      <div class="mfield"><label>WhatsApp</label><input type="tel" id="m-fone" placeholder="(11) 99999-9999"></div>
-      <div class="modal-actions">
-        <button class="plan-btn primary" style="flex:2" onclick="enviarInteresse()">Enviar</button>
-        <button class="plan-btn ghost" style="flex:1" onclick="fecharModal()">Cancelar</button>
-      </div>
-    </div>
-    <div class="modal-success" id="modal-success">
-      <div class="check">✅</div>
-      <h4>Recebemos seu interesse!</h4>
-      <p>Entraremos em contato em até 24h no WhatsApp ou e-mail informado.</p>
-      <button class="plan-btn ghost" style="margin-top:24px" onclick="fecharModal()">Fechar</button>
-    </div>
+  <div class="modal-box" style="max-width:560px;padding:0;overflow:hidden;position:relative">
+    <button onclick="fecharModal()" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:20px;cursor:pointer;color:#6b7280;z-index:10;line-height:1">×</button>
+    <iframe
+      id="jotform-iframe"
+      src="https://form.jotform.com/260666739926069"
+      style="width:100%;height:520px;border:none;display:block"
+      scrolling="yes"
+      allowfullscreen>
+    </iframe>
   </div>
 </div>
 
@@ -762,44 +753,6 @@
   function fecharModal() {
     document.getElementById('modal-interesse').classList.remove('open');
     document.body.style.overflow = '';
-    // reset
-    setTimeout(() => {
-      document.getElementById('modal-form-content').style.display = 'block';
-      document.getElementById('modal-success').style.display = 'none';
-      document.getElementById('m-nome').value = '';
-      document.getElementById('m-email').value = '';
-      document.getElementById('m-fone').value = '';
-    }, 300);
-  }
-  async function enviarInteresse() {
-    const nome  = document.getElementById('m-nome').value.trim();
-    const email = document.getElementById('m-email').value.trim();
-    const fone  = document.getElementById('m-fone').value.trim();
-    if (!nome || !email) { alert('Nome e e-mail são obrigatórios.'); return; }
-
-    const SURL = 'https://rhsbliywnrbouipifhuu.supabase.co';
-    const SKEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJoc2JsaXl3bnJib3VpcGlmaHV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4ODk2NjAsImV4cCI6MjA4ODQ2NTY2MH0.VQ2LRM7Z78YKwMRmLJBshs5J48b1Vt4UdCibsCpRClk';
-
-    // 1. Salvar no Supabase
-    try {
-      await fetch(`${SURL}/rest/v1/interesse_assessor`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'apikey': SKEY, 'Authorization': `Bearer ${SKEY}` },
-        body: JSON.stringify({ nome, email, telefone: fone, created_at: new Date().toISOString() })
-      });
-    } catch(e) { console.warn('Supabase offline:', e); }
-
-    // 2. Enviar email via Supabase Edge Function (evita CORS)
-    try {
-      await fetch('https://rhsbliywnrbouipifhuu.supabase.co/functions/v1/notify-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, telefone: fone })
-      });
-    } catch(e) { console.warn('Notify offline:', e); }
-
-    document.getElementById('modal-form-content').style.display = 'none';
-    document.getElementById('modal-success').style.display = 'block';
   }
   // Fechar modal clicando fora
   document.getElementById('modal-interesse').addEventListener('click', function(e) {

@@ -761,15 +761,37 @@
 
 <!-- Modal Interesse Assessor -->
 <div class="modal-overlay" id="modal-interesse">
-  <div class="modal-box" style="max-width:560px;padding:0;overflow:hidden;position:relative">
-    <button onclick="fecharModal()" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:20px;cursor:pointer;color:#6b7280;z-index:10;line-height:1">×</button>
-    <iframe
-      id="jotform-iframe"
-      src="https://form.jotform.com/260666739926069"
-      style="width:100%;height:520px;border:none;display:block"
-      scrolling="yes"
-      allowfullscreen>
-    </iframe>
+  <div class="modal-box" style="max-width:480px;padding:36px 40px;position:relative">
+    <button onclick="fecharModal()" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280;z-index:10;line-height:1">×</button>
+
+    <div id="modal-form-wrap">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:24px;color:#0f172a;margin-bottom:6px">Quero ser Assessor</h3>
+      <p style="font-size:14px;color:#64748b;margin-bottom:24px">Preencha seus dados e entraremos em contato para liberar seu acesso.</p>
+
+      <form id="modal-assessor-form"
+            action="https://formspree.io/f/mnjgpdeg"
+            method="POST"
+            style="display:flex;flex-direction:column;gap:12px">
+        <input type="text"  name="nome"     placeholder="Seu nome completo" required
+               style="padding:13px 15px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:14px;outline:none;transition:border-color .2s">
+        <input type="email" name="email"    placeholder="Seu email profissional" required
+               style="padding:13px 15px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:14px;outline:none;transition:border-color .2s">
+        <input type="tel"   name="telefone" placeholder="WhatsApp (opcional)"
+               style="padding:13px 15px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:14px;outline:none;transition:border-color .2s">
+        <input type="text"  name="escritorio" placeholder="Nome do escritório (opcional)"
+               style="padding:13px 15px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:14px;outline:none;transition:border-color .2s">
+        <button type="submit" id="modal-submit-btn"
+                style="background:#1a56db;color:#fff;border:none;border-radius:10px;padding:14px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;margin-top:4px;transition:background .2s">
+          Quero ser Assessor →
+        </button>
+      </form>
+    </div>
+
+    <div id="modal-success" style="display:none;text-align:center;padding:20px 0">
+      <div style="font-size:48px;margin-bottom:16px">✅</div>
+      <h4 style="font-family:'DM Serif Display',serif;font-size:22px;color:#0f172a;margin-bottom:8px">Recebemos seu contato!</h4>
+      <p style="font-size:14px;color:#64748b">Entraremos em contato em breve para liberar seu acesso.</p>
+    </div>
   </div>
 </div>
 
@@ -823,7 +845,33 @@
     if (e.target === this) fecharModal();
   });
 
-  // Formspree contato
+  // Formspree modal assessor
+  const modalForm = document.getElementById('modal-assessor-form');
+  if (modalForm) {
+    modalForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('modal-submit-btn');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(modalForm.action, {
+          method: 'POST',
+          body: new FormData(modalForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          document.getElementById('modal-form-wrap').style.display = 'none';
+          document.getElementById('modal-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Erro — tente novamente';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Erro — tente novamente';
+        btn.disabled = false;
+      }
+    });
+  }
   const contatoForm = document.getElementById('contato-form');
   if (contatoForm) {
     contatoForm.addEventListener('submit', async function(e) {

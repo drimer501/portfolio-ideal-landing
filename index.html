@@ -4,14 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfólio Ideal — Descubra sua alocação ideal de investimentos</title>
-<meta name="description" content="Descubra seu perfil de investidor e receba uma carteira personalizada gratuitamente.">
-<meta property="og:title" content="Portfólio Ideal — Invista com inteligência">
-<meta property="og:description" content="Questionário gratuito de perfil de risco com carteira otimizada por ciência financeira.">
-<meta property="og:image" content="https://portfolioideal.com.br/og-image.png">
-<meta property="og:url" content="https://portfolioideal.com.br">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://portfolioideal.com.br/og-image.png"> 
 <meta name="description" content="Ferramenta gratuita baseada em ciência comportamental para descobrir sua alocação ideal de investimentos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
@@ -286,7 +278,41 @@
   }
   .step p { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
-  /* ── DIFERENCIAIS ── */
+  /* ── CONTATO ── */
+  .contato { padding: 100px 5%; background: var(--white); text-align: center; }
+  .contato-inner { max-width: 600px; margin: 0 auto; }
+  .contato-inner h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 42px); color: var(--dark); font-weight: 400; letter-spacing: -0.5px; margin-bottom: 14px; }
+  .contato-inner > p { font-size: 16px; color: var(--muted); margin-bottom: 40px; line-height: 1.7; }
+  .contato-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+  .contato-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .contato-form input,
+  .contato-form textarea {
+    width: 100%; padding: 14px 16px;
+    border: 1.5px solid var(--border); border-radius: 10px;
+    font-family: inherit; font-size: 14px; color: var(--dark);
+    background: var(--bg); outline: none; transition: border-color .2s;
+    box-sizing: border-box;
+  }
+  .contato-form input:focus,
+  .contato-form textarea:focus { border-color: var(--blue); background: #fff; }
+  .contato-form textarea { resize: vertical; min-height: 120px; }
+  .contato-form .btn-submit {
+    background: var(--blue); color: #fff; border: none;
+    border-radius: 10px; padding: 15px 32px;
+    font-family: inherit; font-size: 15px; font-weight: 600;
+    cursor: pointer; transition: background .2s; align-self: flex-end;
+  }
+  .contato-form .btn-submit:hover { background: var(--blue-d); }
+  .contato-ou { display: flex; align-items: center; gap: 14px; margin: 28px 0; color: var(--muted); font-size: 13px; }
+  .contato-ou::before, .contato-ou::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .contato-email-link { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-size: 15px; font-weight: 500; text-decoration: none; }
+  .contato-email-link:hover { text-decoration: underline; }
+  .contato-success { display: none; text-align: center; padding: 32px 0; }
+  .contato-success .check-icon { font-size: 48px; margin-bottom: 16px; }
+  .contato-success h4 { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--dark); margin-bottom: 8px; }
+  .contato-success p { font-size: 14px; color: var(--muted); margin: 0; }
+  @media (max-width: 600px) { .contato-row { grid-template-columns: 1fr; } .contato-form .btn-submit { align-self: stretch; } }
+
   .diff-section { background: var(--bg); padding: 100px 5%; }
   .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
   .diff-text h2 {
@@ -747,6 +773,36 @@
   </div>
 </div>
 
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="contato-inner reveal">
+    <span class="section-tag">Contato</span>
+    <h2>Fale com a gente</h2>
+    <p>Dúvidas sobre planos, parcerias ou demonstrações personalizadas?<br>Responderemos em até 1 dia útil.</p>
+
+    <div id="contato-form-wrap">
+      <form class="contato-form" id="contato-form"
+            action="https://formspree.io/f/xkoqjrlj"
+            method="POST">
+        <div class="contato-row">
+          <input type="text"  name="nome"   placeholder="Seu nome"   required>
+          <input type="email" name="email"  placeholder="Seu email"  required>
+        </div>
+        <input type="text" name="assunto" placeholder="Assunto (ex: Quero uma demo)">
+        <textarea name="mensagem" placeholder="Sua mensagem..." required></textarea>
+        <button type="submit" class="btn-submit">Enviar mensagem →</button>
+      </form>
+
+    </div>
+
+    <div class="contato-success" id="contato-success">
+      <div class="check-icon">✅</div>
+      <h4>Mensagem enviada!</h4>
+      <p>Obrigado pelo contato. Retornaremos em breve.</p>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Portfólio<span>Ideal</span></div>
@@ -766,6 +822,34 @@
   document.getElementById('modal-interesse').addEventListener('click', function(e) {
     if (e.target === this) fecharModal();
   });
+
+  // Formspree contato
+  const contatoForm = document.getElementById('contato-form');
+  if (contatoForm) {
+    contatoForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = contatoForm.querySelector('.btn-submit');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(contatoForm.action, {
+          method: 'POST',
+          body: new FormData(contatoForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          document.getElementById('contato-form-wrap').style.display = 'none';
+          document.getElementById('contato-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Erro — tente novamente';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Erro — tente novamente';
+        btn.disabled = false;
+      }
+    });
+  }
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {

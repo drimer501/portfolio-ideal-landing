@@ -199,7 +199,7 @@
   .hc-name { font-size: 13px; color: var(--text); font-weight: 500; width: 130px; flex-shrink: 0; }
   .hc-bar-wrap { flex: 1; height: 6px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
   .hc-bar { height: 100%; border-radius: 99px; background: var(--blue); }
-  .hc-pct { font-size: 13px; font-weight: 600; color: var(--blue); width: 70px; text-align: right; flex-shrink: 0; }
+  .hc-pct { font-size: 13px; font-weight: 600; color: var(--blue); width: 90px; text-align: right; flex-shrink: 0; white-space: nowrap; }
   .hc-interval { font-size: 13px; color: var(--blue); font-weight: 600; }
 
   /* ── STATS ── */
@@ -502,9 +502,9 @@
     <span class="dot"></span>
     Ferramenta gratuita para investidores brasileiros
   </div>
-  <h1>Descubra seu <em>portfólio de investimentos ideal</em><br>com base em ciência</h1>
+  <h1>Qual a <em>melhor alocação</em><br>para o seu dinheiro?</h1>
   <p class="hero-sub">
-    Não existe alocação universal. Sua carteira de investimentos deve refletir sua tolerância ao risco, aversão a perdas e situação financeira real — não um perfil genérico.
+    Sua carteira deve refletir sua tolerância ao risco, aversão a perdas e situação financeira real — não um perfil genérico. Descubra em 5 minutos.
   </p>
   <div class="hero-actions">
     <a href="https://app.portfolioideal.com.br" class="btn-primary">
@@ -524,24 +524,29 @@
     </div>
     <div class="hc-alloc">
       <div class="hc-row">
-        <span class="hc-name">RF Inflação</span>
-        <div class="hc-bar-wrap"><div class="hc-bar" style="width:55%"></div></div>
-        <span class="hc-pct">55% <span class="hc-interval">±18%</span></span>
+        <span class="hc-name">Renda Fixa IPCA</span>
+        <div class="hc-bar-wrap"><div class="hc-bar" style="width:45%"></div></div>
+        <span class="hc-pct">45% <span class="hc-interval">±18%</span></span>
+      </div>
+      <div class="hc-row">
+        <span class="hc-name">Renda Fixa SELIC</span>
+        <div class="hc-bar-wrap"><div class="hc-bar" style="width:25%;background:#3b82f6"></div></div>
+        <span class="hc-pct">25% <span class="hc-interval">±20%</span></span>
+      </div>
+      <div class="hc-row">
+        <span class="hc-name">IVVB11</span>
+        <div class="hc-bar-wrap"><div class="hc-bar" style="width:15%;background:#60a5fa"></div></div>
+        <span class="hc-pct">15% <span class="hc-interval">±12%</span></span>
       </div>
       <div class="hc-row">
         <span class="hc-name">Ações Brasil</span>
-        <div class="hc-bar-wrap"><div class="hc-bar" style="width:25%;background:#3b82f6"></div></div>
-        <span class="hc-pct">25% <span class="hc-interval">±24%</span></span>
+        <div class="hc-bar-wrap"><div class="hc-bar" style="width:10%;background:#93c5fd"></div></div>
+        <span class="hc-pct">10% <span class="hc-interval">±16%</span></span>
       </div>
       <div class="hc-row">
-        <span class="hc-name">Multimercados</span>
-        <div class="hc-bar-wrap"><div class="hc-bar" style="width:12%;background:#60a5fa"></div></div>
-        <span class="hc-pct">12% <span class="hc-interval">±15%</span></span>
-      </div>
-      <div class="hc-row">
-        <span class="hc-name">RF SELIC</span>
-        <div class="hc-bar-wrap"><div class="hc-bar" style="width:8%;background:#93c5fd"></div></div>
-        <span class="hc-pct">8% <span class="hc-interval">±12%</span></span>
+        <span class="hc-name">Renda Fixa Pré</span>
+        <div class="hc-bar-wrap"><div class="hc-bar" style="width:5%;background:#bfdbfe"></div></div>
+        <span class="hc-pct">5% <span class="hc-interval">±14%</span></span>
       </div>
     </div>
   </div>
@@ -603,8 +608,8 @@
   <div class="diff-grid">
     <div class="diff-text reveal">
       <span class="section-tag">Por que é diferente</span>
-      <h2>Não é um perfil<br><em>conservador, moderado</em><br>ou arrojado</h2>
-      <p>A maioria das ferramentas coloca você em uma de três caixas. O Portfólio Ideal calcula uma alocação única — resultado da combinação exata dos seus três parâmetros de risco moderados pela sua situação financeira real.</p>
+      <h2>Não é um perfil<br><em>conservador, moderado,</em><br>arrojado ou agressivo</h2>
+      <p>A maioria das ferramentas coloca você em uma de quatro caixas. O Portfólio Ideal calcula uma alocação única — resultado da combinação exata dos seus três parâmetros de risco moderados pela sua situação financeira real.</p>
       <div class="diff-items">
         <div class="diff-item">
           <div class="diff-icon">🧮</div>
@@ -649,24 +654,81 @@
       <div class="dv-title">Alocação recomendada</div>
       <div class="dv-alloc">
         <div class="dv-row">
-          <span class="dv-name">RF Inflação</span>
-          <div class="dv-bw"><div class="dv-b" style="width:60%"></div></div>
-          <span class="dv-pct">60% ±20%</span>
+          <span class="dv-name">Renda Fixa IPCA</span>
+          <div class="dv-bw"><div class="dv-b" style="width:45%"></div></div>
+          <span class="dv-pct">45% ±18%</span>
+        </div>
+        <div class="dv-row">
+          <span class="dv-name">Renda Fixa SELIC</span>
+          <div class="dv-bw"><div class="dv-b" style="width:25%"></div></div>
+          <span class="dv-pct">25% ±20%</span>
+        </div>
+        <div class="dv-row">
+          <span class="dv-name">IVVB11</span>
+          <div class="dv-bw"><div class="dv-b" style="width:15%"></div></div>
+          <span class="dv-pct">15% ±12%</span>
         </div>
         <div class="dv-row">
           <span class="dv-name">Ações Brasil</span>
-          <div class="dv-bw"><div class="dv-b" style="width:25%"></div></div>
-          <span class="dv-pct">25% ±28%</span>
-        </div>
-        <div class="dv-row">
-          <span class="dv-name">Multimercados</span>
           <div class="dv-bw"><div class="dv-b" style="width:10%"></div></div>
           <span class="dv-pct">10% ±16%</span>
         </div>
         <div class="dv-row">
-          <span class="dv-name">RF Pré</span>
+          <span class="dv-name">Renda Fixa Pré</span>
           <div class="dv-bw"><div class="dv-b" style="width:5%"></div></div>
           <span class="dv-pct">5% ±14%</span>
+        </div>
+      </div>
+      <div class="dv-sep"></div>
+      <div class="dv-title">Retorno histórico vs CDI</div>
+      <div style="background:#f8fafc;border-radius:10px;padding:16px 12px 10px;border:1px solid rgba(203,213,225,.5)">
+        <svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+          <!-- Grid lines -->
+          <line x1="40" y1="10" x2="40" y2="110" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="40" y1="110" x2="350" y2="110" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="40" y1="70" x2="350" y2="70" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <line x1="40" y1="30" x2="350" y2="30" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <!-- Y axis labels -->
+          <text x="36" y="113" font-size="8" fill="#94a3b8" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif">0%</text>
+          <text x="36" y="73" font-size="8" fill="#94a3b8" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif">+250%</text>
+          <text x="36" y="33" font-size="8" fill="#94a3b8" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif">+500%</text>
+          <!-- X axis labels -->
+          <text x="60" y="122" font-size="7" fill="#94a3b8" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif">2010</text>
+          <text x="137" y="122" font-size="7" fill="#94a3b8" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif">2014</text>
+          <text x="214" y="122" font-size="7" fill="#94a3b8" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif">2018</text>
+          <text x="291" y="122" font-size="7" fill="#94a3b8" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif">2022</text>
+          <text x="340" y="122" font-size="7" fill="#94a3b8" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif">2026</text>
+          <!-- CDI line (dashed, slower growth) -->
+          <polyline points="40,108 80,104 120,98 160,90 200,82 240,72 280,62 320,54 345,50" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <!-- Portfolio line (solid, faster growth) -->
+          <polyline points="40,108 60,106 80,102 100,98 120,90 140,82 160,68 180,60 200,48 220,55 240,42 260,35 280,28 300,22 320,18 345,15" fill="none" stroke="#1a56db" stroke-width="2"/>
+          <!-- Gradient fill under portfolio -->
+          <defs>
+            <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a56db" stop-opacity="0.12"/>
+              <stop offset="100%" stop-color="#1a56db" stop-opacity="0.01"/>
+            </linearGradient>
+          </defs>
+          <polygon points="40,108 60,106 80,102 100,98 120,90 140,82 160,68 180,60 200,48 220,55 240,42 260,35 280,28 300,22 320,18 345,15 345,110 40,110" fill="url(#chartFill)"/>
+          <!-- Legend -->
+          <line x1="200" y1="132" x2="216" y2="132" stroke="#1a56db" stroke-width="2"/>
+          <text x="220" y="135" font-size="8" fill="#475569" font-family="Plus Jakarta Sans,sans-serif">Carteira</text>
+          <line x1="260" y1="132" x2="276" y2="132" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <text x="280" y="135" font-size="8" fill="#94a3b8" font-family="Plus Jakarta Sans,sans-serif">CDI</text>
+        </svg>
+        <div style="display:flex;justify-content:space-around;margin-top:8px;padding-top:8px;border-top:1px solid #e2e8f0">
+          <div style="text-align:center">
+            <div style="font-size:15px;font-weight:700;color:#059669">+570%</div>
+            <div style="font-size:9px;color:#94a3b8">Carteira</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:15px;font-weight:700;color:#475569">+332%</div>
+            <div style="font-size:9px;color:#94a3b8">CDI</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:15px;font-weight:700;color:#1a56db">172%</div>
+            <div style="font-size:9px;color:#94a3b8">do CDI</div>
+          </div>
         </div>
       </div>
     </div>
@@ -717,12 +779,12 @@
         <ul class="plan-features">
           <li>Questionário completo de perfil de risco</li>
           <li>Alocação recomendada com intervalos de confiança</li>
-          <li>Gráfico de retorno histórico da carteira</li>
+          <li>Gráfico de retorno histórico com benchmark CDI</li>
           <li>Base de dados padrão com 5 classes de ativos</li>
           <li class="muted">Painel de clientes</li>
           <li class="muted">Base de dados personalizada</li>
+          <li class="muted">Diagnóstico de ativos</li>
           <li class="muted">Relatório em PDF com sua marca</li>
-          <li class="muted">Link único por cliente</li>
         </ul>
         <a href="https://app.portfolioideal.com.br" class="plan-btn ghost">Começar gratuitamente →</a>
       </div>
@@ -737,9 +799,10 @@
           <li>Tudo do plano gratuito</li>
           <li>Painel de clientes com histórico completo</li>
           <li>Base de dados personalizada com seus ativos</li>
+          <li>Sincronização automática com a base padrão</li>
           <li>Relatório em PDF com a sua marca</li>
+          <li>Diagnóstico de ativos (Contribuições de Momentos + MPTE)</li>
           <li>Link único por cliente — sem cadastro necessário</li>
-          <li>Diagnóstico de ativos com ferramentas quantitativas</li>
           <li>Suporte por e-mail</li>
         </ul>
         <button class="plan-btn primary" onclick="abrirModal()">Testar PRO Grátis→</button>
